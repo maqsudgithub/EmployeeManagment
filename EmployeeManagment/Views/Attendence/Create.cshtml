@@ -1,0 +1,54 @@
+﻿@model EmployeeManagment.Models.Attendence
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create New Attendence</h1>
+<hr />
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form asp-action="AddAttendence" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="ID" />
+                <label asp-for="Employee" class="control-label"></label>
+             
+                <select asp-for="EmpID" class="form-control" asp-items="@(new SelectList(ViewBag.DepList,"ID","Name"))">
+
+                </select>
+                <span asp-validation-for="EmpID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attandence" class="control-label"></label>
+                <select asp-for="Attandence" class="form-select">
+					<option value="">Select Attendence</option>
+					<option>Present</option>
+					<option>Absent</option>
+					<option>Leave</option>
+				</select>
+                <span asp-validation-for="Attandence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div><br />
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+				<a asp-action="AttendenceList" class="btn btn-primary m-2">Attendence List</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+

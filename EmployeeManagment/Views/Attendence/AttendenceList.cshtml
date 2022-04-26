@@ -1,0 +1,60 @@
+﻿@model IEnumerable<EmployeeManagment.Models.Attendence>
+
+@{
+    ViewData["Title"] = "AttendenceList";
+}
+
+<h1>AttendenceList</h1>
+<p style="float:right">
+    <a asp-action="Create" class="btn btn-primary">Add New</a>
+</p><br />
+@*<div class="col-4 p-0 justify-content-end">
+	<form asp-controller="Attendence" asp-action="AttendenceList">
+		<span class="btn-group">
+			<input class="form-control" type="text" name="SearchText" placeholder="--Search--" />
+			<input class="p-0 m-lg-2 btn btn-sm btn-info" type="submit" value="Search" />
+		</span>
+	</form>
+</div>*@
+<br />
+<table class="table">
+    <thead id="tablehead">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Employee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attandence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr id="trow">
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attandence)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                <form>
+						@Html.ActionLink("Edit", "Create", new {  id=item.ID, item.EmpID, item.Attandence, item.Date },new {@class="btn btn-success"}) |
+
+						<button type="submit" formmethod="get" class="btn btn-danger " asp-controller="Attendence" asp-action="Delete" asp-route-id=@item.ID ,
+							onclick="return confirm('Are you want to delete...? : @item.Employee ')">
+							Delete
+						</button>
+					</form>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

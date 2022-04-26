@@ -1,0 +1,267 @@
+﻿@model EmployeeManagment.Models.Employee
+
+@{
+	ViewData["Title"] = "EmployeeDetail";
+}
+
+<h1>EmployeeDetail</h1>
+
+<body style="background-color:#f3f0f040">
+	<form>
+		<div class="row" style="font-family:Cursive, Times New Roman, serif;">
+			<div class="row col-md-12 mb-2">
+				<div class="d-flex flex-column align-items-center text-center ">
+					<img class=" mt-2 mb-2" id="imgPreview" src="@Url.Content("~/image")/@Model.Image" alt="" style="height:200px;width:180px">
+
+					<span class="text-black-50">@Model.Email</span>
+				</div>
+			</div>
+
+			<div class="row col-md-12 mt-5 mb-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<label>Name</label>
+				</div>
+				<div class="col-md-3">
+					@Model.Name
+
+				</div>
+			</div>
+
+			<div class="row col-md-12 mb-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<label>Father Name</label>
+				</div>
+				<div class="col-md-3">
+					@Model.FName
+				</div>
+			</div>
+
+			<div class="row col-md-12 mb-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<label>Email</label>
+				</div>
+				<div class="col-md-3">
+					@Model.Email
+				</div>
+			</div>
+
+			<div class="row  col-md-12 mb-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<label>Contact </label>
+				</div>
+				<div class="col-md-3">
+					@Model.Contact
+				</div>
+			</div>
+
+
+			<div class="row col-md-12 mb-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<label>Designation</label>
+				</div>
+				<div class="col-md-3">
+					@Model.Designation
+				</div>
+			</div>
+
+			<div class="row col-md-12 mb-3">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<label>Date</label>
+				</div>
+				<div class="col-md-3">
+					@Model.Date
+				</div>
+			</div>
+
+
+			<button type="submit" formmethod="get" style="margin-left:auto" class="btn btn-primary col-md-1 mb-5 " asp-controller="Employee" asp-action="Employeelist">Back</button>
+
+		</div>
+	</form>
+
+
+
+	@*<table class="table">
+		<tr>
+		<th col-md-5>
+		<label asp-for="Gender"></label>
+		</th>
+		<td col-md-6> @Model.Gender</td>
+		</tr>
+
+		<tr>
+		<th col-md-5>
+		<label asp-for="LastName"></label>
+		</th>
+		<td col-md-6> @Model.LastName</td>
+		</tr>
+		<tr>
+		<th col-md-5>
+		<label asp-for="UserName"></label>
+		</th>
+		<td col-md-6> @Model.UserName</td>
+		</tr>
+		<tr>
+		<th col-md-5>
+		<label asp-for="Gender"></label>
+		</th>
+		<td col-md-6> @Model.Gender</td>
+		</tr>
+		<tr>
+		<th col-md-5>
+		<label asp-for="Email"></label>
+		</th>
+		<td col-md-6> @Model.Email</td>
+		</tr>
+		<tr>
+		<th col-md-5>
+		<label ">Image</label>
+		</th>
+		<td col-md-7>
+		<img id="imgPreview" src="@Url.Content("~/image")/@Model.ImgPath" alt="pic" style=" style="height: 300px; width: 100%;" />
+		</td>
+		</tr>
+		</table>
+	*@
+
+
+
+
+
+
+	@*
+		<div class="form-group">
+		<label asp-for="FirstName" class="control-label"></label>
+		<input asp-for="FirstName" class="form-control" autocomplete="off" />
+		<span asp-validation-for="FirstName" class="text-danger"></span>
+		</div>
+		<div class="form-group">
+		<label asp-for="LastName" class="control-label"></label>
+		<input asp-for="LastName" class="form-control" />
+		<span asp-validation-for="LastName" class="text-danger"></span>
+		</div>
+		<div class="form-group">
+		<label asp-for="Gender" class="control-label"></label>
+		<input asp-for="Gender" class="form-control" />
+		<span asp-validation-for="Gender" class="text-danger"></span>
+		</div>
+		<div class="form-floating pt-2  mb-2 custom-file ">
+
+		<input type="file" name="imge" class="form-control custom-file-input"/>
+		</div>
+
+
+		<div class="form-group">
+		<input type="submit" value="UPDATE" class="btn btn-primary" />
+		<a asp-controller="Account" asp-action="UsersList" class="btn btn-primary">Cancel</a>
+		</div>
+		</form>
+		</div>
+		</div>
+
+		<div>
+		<a asp-action="Index">Back to List</a>
+		</div>*@
+
+	@section Scripts {
+	@{
+	await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+	}
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+	<div>
+	<h4>Employee</h4>
+	<hr />
+	<dl class="row">
+	<dt class="col-sm-2">
+	@Html.DisplayNameFor(model => model.Name)
+	</dt>
+	<dd class="col-sm-10">
+	@Html.DisplayFor(model => model.Name)
+	</dd>
+	<dt class="col-sm-2">
+	@Html.DisplayNameFor(model => model.FName)
+	</dt>
+	<dd class="col-sm-10">
+	@Html.DisplayFor(model => model.FName)
+	</dd>
+	<dt class="col-sm-2">
+	@Html.DisplayNameFor(model => model.Email)
+	</dt>
+	<dd class="col-sm-10">
+	@Html.DisplayFor(model => model.Email)
+	</dd>
+	<dt class="col-sm-2">
+	@Html.DisplayNameFor(model => model.Contact)
+	</dt>
+	<dd class="col-sm-10">
+	@Html.DisplayFor(model => model.Contact)
+	</dd>
+	<dt class="col-sm-2">
+	@Html.DisplayNameFor(model => model.Designation)
+	</dt>
+	<dd class="col-sm-10">
+	@Html.DisplayFor(model => model.Designation)
+	</dd>
+	<dt class="col-sm-2">
+	@Html.DisplayNameFor(model => model.Date)
+	</dt>
+	<dd class="col-sm-10">
+	@Html.DisplayFor(model => model.Date)
+	</dd>
+
+	</dl>
+	</div>
+	<div>
+	<dt class="col-sm-2">
+	@Html.DisplayNameFor(model => model.Image)
+	</dt>
+	<dd class="col-sm-10">
+	@Html.DisplayFor(model => model.Image)
+	</dd>
+	</div>
+
+
+	<div>
+	<a asp-action="Edit" asp-route-id="@Model?.ID">Edit</a> |
+	<a asp-action="Index">Back to List</a>
+	</div>*@
