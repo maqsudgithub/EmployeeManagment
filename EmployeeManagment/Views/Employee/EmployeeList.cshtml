@@ -85,6 +85,7 @@
                  <img class="rounded-circle mt-2 mb-2" id="imgPreview" src="@Url.Content("~/image")/@item.Image" alt="" style="height:50px;width:50px">
             </td>
             <td>
+                
                 <form>
 						@Html.ActionLink("Edit", "Create", new {  id=item.ID, item.Name, item.FName, item.Email, item.Contact, item.Designation, item.Date, item.Image },new {@class="btn btn-success"}) |
 

@@ -58,17 +58,20 @@ namespace EmployeeManagment.Controllers
         {
             try
             {
-                
-                //var todaydate = DateTime.Now;
-                //var check = _DB.tbl_Attendence.Where(a => a.Date == todaydate && a.Employee == "Name").FirstOrDefault()
+                var check = _DB.tbl_Attendence.Where(a => a.Date == obj.Date && a.EmpID == obj.EmpID).FirstOrDefault();
 
-                
-                
                 if (obj.ID == 0)
                 {
-                    _DB.tbl_Attendence.Add(obj);
-                    await _DB.SaveChangesAsync();
-
+                    if (check == null)
+                    {
+                        _DB.tbl_Attendence.Add(obj);
+                        await _DB.SaveChangesAsync();
+                    }
+                    else
+                    {
+                        TempData["SuccessMessage"] = "This Employee are Exit on This Date...!";
+                        return RedirectToAction("Create");
+                    }
                 }
                 else
                 {
